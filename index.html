@@ -126,7 +126,7 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
+            <!-- Project 2: Autonomous Wheelchair — clickable gallery -->
             <div class="project">
                 <div class="project-head">
                     <div>
@@ -137,7 +137,13 @@
                     </div>
                     <div class="project-addr">MEM[0x01]</div>
                 </div>
-                <div class="project-body">
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" id="wheelchairTrigger" aria-haspopup="dialog"
+                        aria-controls="wheelchairModal">
+                        <img src="Assets/wheelchairprototype.jpg" alt="Autonomous wheelchair prototype on a workbench"
+                            class="thumb-img" loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
+                    </button>
                     <ul>
                         <li>Group-built autonomous wheelchair using Arduino microcontrollers and breadboards, programmed
                             in C for mobility and assistive functions.</li>
@@ -149,7 +155,6 @@
                         <li>Validated the design against speed, weight capacity, incline pulling, and launcher
                             precision.</li>
                     </ul>
-                    <div class="media-slot">Photo slot — prototype, final build, and AutoCAD renders go here</div>
                 </div>
             </div>
 
@@ -297,6 +302,46 @@
         </div>
     </footer>
 
+    <!-- Autonomous Wheelchair gallery modal -->
+    <div class="modal-overlay" id="wheelchairModal" role="dialog" aria-modal="true"
+        aria-labelledby="wheelchairModalTitle" hidden>
+        <div class="modal-panel">
+            <button type="button" class="modal-close" id="wheelchairModalClose" aria-label="Close gallery">✕</button>
+
+            <div class="modal-top">
+                <video class="modal-media crop-square" id="wheelchairVideoMain" muted loop playsinline
+                    preload="metadata">
+                    <source src="Assets/360wheelchair.mp4" type="video/mp4">
+                    <source src="Assets/360wheelchair.mov" type="video/quicktime">
+                </video>
+                <div class="modal-desc">
+                    <h3 id="wheelchairModalTitle">Autonomous Wheelchair — Build Walkthrough</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this paragraph with a short
+                        walkthrough of what the 360° clip shows — chassis, sensors, and how the drive system is laid
+                        out.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Add a line on what problem
+                        the mechanism solves and any design trade-offs worth calling out.</p>
+                </div>
+            </div>
+
+            <div class="modal-bottom">
+                <figure class="modal-cell">
+                    <img src="Assets/wheelchairprototype.jpg" alt="Meccano wheelchair frame prototype on a workbench"
+                        class="modal-media crop-square">
+                    <figcaption>Frame prototype, Meccano build</figcaption>
+                </figure>
+                <figure class="modal-cell">
+                    <video class="modal-media crop-square" id="wheelchairVideoMoving" muted loop playsinline
+                        preload="metadata">
+                        <source src="Assets/movingwheelchair.mp4" type="video/mp4">
+                        <source src="Assets/movingwheelchair.mov" type="video/quicktime">
+                    </video>
+                    <figcaption>Drive test, final build</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
     <script>
         // ---- bit toggle setup ----
         const NBITS = 4;
@@ -364,6 +409,70 @@
         renderBits('bitsB', b, true);
         document.getElementById('opSelect').addEventListener('change', compute);
         compute();
+
+        // ---- Autonomous Wheelchair gallery modal ----
+        (function () {
+            const trigger = document.getElementById('wheelchairTrigger');
+            const overlay = document.getElementById('wheelchairModal');
+            const closeBtn = document.getElementById('wheelchairModalClose');
+            const panel = overlay.querySelector('.modal-panel');
+            const videoMain = document.getElementById('wheelchairVideoMain');
+            const videoMoving = document.getElementById('wheelchairVideoMoving');
+            const videos = [videoMain, videoMoving];
+            let lastFocused = null;
+
+            function playVideos() {
+                videos.forEach(v => { v.currentTime = 0; v.play().catch(() => { }); });
+            }
+            function pauseVideos() {
+                videos.forEach(v => v.pause());
+            }
+
+            function openModal() {
+                lastFocused = document.activeElement;
+                overlay.hidden = false;
+                document.body.classList.add('modal-open');
+                // force reflow so the transition runs
+                void overlay.offsetWidth;
+                overlay.classList.add('open');
+                playVideos();
+                closeBtn.focus();
+                document.addEventListener('keydown', onKeydown);
+            }
+
+            function closeModal() {
+                overlay.classList.remove('open');
+                document.body.classList.remove('modal-open');
+                pauseVideos();
+                document.removeEventListener('keydown', onKeydown);
+                const onEnd = () => {
+                    overlay.hidden = true;
+                    overlay.removeEventListener('transitionend', onEnd);
+                };
+                overlay.addEventListener('transitionend', onEnd);
+                if (lastFocused) lastFocused.focus();
+            }
+
+            function onKeydown(e) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'Tab') {
+                    const focusables = overlay.querySelectorAll('button, [href], video, [tabindex]:not([tabindex="-1"])');
+                    if (!focusables.length) return;
+                    const first = focusables[0], last = focusables[focusables.length - 1];
+                    if (e.shiftKey && document.activeElement === first) {
+                        e.preventDefault(); last.focus();
+                    } else if (!e.shiftKey && document.activeElement === last) {
+                        e.preventDefault(); first.focus();
+                    }
+                }
+            }
+
+            trigger.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) closeModal();
+            });
+        })();
     </script>
 
 </body>
