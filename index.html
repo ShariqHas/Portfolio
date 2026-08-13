@@ -4,12 +4,1166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hasan Shariq — Computer Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b1f17;
+            --bg-alt: #0f2a1f;
+            --panel: #102820;
+            --copper: #c97c4a;
+            --copper-bright: #e8a54b;
+            --signal: #6fe7d4;
+            --text: #edeae0;
+            --text-dim: #8fa89a;
+            --line: #234636;
+            --line-bright: #2f5a44;
+            --radius: 2px;
+            --mono: 'IBM Plex Mono', monospace;
+            --sans: 'IBM Plex Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* background trace texture */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(var(--line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--line) 1px, transparent 1px);
+            background-size: 64px 64px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        .toggle:focus-visible {
+            outline: 2px solid var(--signal);
+            outline-offset: 3px;
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------- NAV ---------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(11, 31, 23, 0.88);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        nav.wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            padding-bottom: 18px;
+        }
+
+        .logo {
+            font-family: var(--mono);
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            color: var(--copper-bright);
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: var(--text-dim);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 28px;
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .navlinks a {
+            color: var(--text-dim);
+            position: relative;
+            padding-bottom: 2px;
+            transition: color .2s;
+        }
+
+        .navlinks a:hover {
+            color: var(--signal);
+        }
+
+        .navlinks a::before {
+            content: attr(data-addr);
+            color: var(--copper);
+            margin-right: 6px;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            position: relative;
+            padding: 120px 0 96px;
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--copper);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--signal);
+            box-shadow: 0 0 8px var(--signal);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.35;
+            }
+        }
+
+        h1.name {
+            font-family: var(--mono);
+            font-weight: 700;
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.05;
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+
+        h1.name em {
+            font-style: normal;
+            color: var(--copper-bright);
+        }
+
+        .role {
+            font-family: var(--sans);
+            font-size: 19px;
+            color: var(--text-dim);
+            margin-top: 18px;
+            max-width: 46ch;
+        }
+
+        .hero-links {
+            margin-top: 32px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            padding: 11px 18px;
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            color: var(--text);
+            transition: border-color .2s, color .2s, background .2s;
+        }
+
+        .btn:hover {
+            border-color: var(--copper);
+            color: var(--copper-bright);
+        }
+
+        .btn.solid {
+            background: var(--copper);
+            border-color: var(--copper);
+            color: #0b1f17;
+            font-weight: 600;
+        }
+
+        .btn.solid:hover {
+            background: var(--copper-bright);
+            border-color: var(--copper-bright);
+            color: #0b1f17;
+        }
+
+        /* schematic svg */
+        .schematic {
+            width: 100%;
+            height: auto;
+        }
+
+        .schematic path.trace {
+            fill: none;
+            stroke: var(--line-bright);
+            stroke-width: 1.5;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+            animation: draw 1.8s ease forwards;
+        }
+
+        .schematic path.trace.hot {
+            stroke: var(--copper);
+        }
+
+        .schematic path.trace:nth-child(2) {
+            animation-delay: .15s;
+        }
+
+        .schematic path.trace:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        .schematic path.trace:nth-child(4) {
+            animation-delay: .45s;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .schematic circle.node {
+            fill: var(--bg);
+            stroke: var(--copper-bright);
+            stroke-width: 1.5;
+        }
+
+        .schematic circle.pulse {
+            fill: var(--signal);
+            animation: blink 2.4s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        .schematic text {
+            font-family: var(--mono);
+            fill: var(--text-dim);
+            font-size: 9px;
+        }
+
+        /* ---------- SECTION SHELL ---------- */
+        section {
+            padding: 88px 0;
+            border-bottom: 1px solid var(--line);
+            position: relative;
+        }
+
+        .sec-head {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .addr {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--copper);
+            letter-spacing: 0.06em;
+        }
+
+        h2 {
+            font-family: var(--mono);
+            font-size: 26px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        .sec-rule {
+            flex: 1;
+            height: 1px;
+            background: var(--line-bright);
+        }
+
+        /* ---------- ABOUT / EDU ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .about-grid p {
+            color: var(--text-dim);
+            font-size: 16px;
+            max-width: 52ch;
+        }
+
+        .about-grid p+p {
+            margin-top: 16px;
+        }
+
+        .edu-card {
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            padding: 24px;
+            background: var(--panel);
+        }
+
+        .edu-card .school {
+            font-family: var(--mono);
+            font-weight: 600;
+            color: var(--copper-bright);
+            font-size: 15px;
+        }
+
+        .edu-card .deg {
+            color: var(--text-dim);
+            margin-top: 4px;
+            font-size: 14px;
+        }
+
+        .edu-card .dates {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 10px;
+            letter-spacing: 0.04em;
+        }
+
+        .courses {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .courses span {
+            font-family: var(--mono);
+            font-size: 10.5px;
+            color: var(--signal);
+            border: 1px solid var(--line-bright);
+            padding: 4px 8px;
+            border-radius: var(--radius);
+            letter-spacing: 0.03em;
+        }
+
+        /* ---------- PROJECTS ---------- */
+        .project {
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            background: var(--panel);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 26px 28px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .project-title {
+            font-family: var(--mono);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .project-tags span {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--copper-bright);
+            border: 1px solid var(--line-bright);
+            padding: 3px 7px;
+            border-radius: var(--radius);
+        }
+
+        .project-addr {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--copper);
+            white-space: nowrap;
+        }
+
+        .project-body {
+            padding: 18px 28px 28px;
+        }
+
+        .project-body ul {
+            list-style: none;
+        }
+
+        .project-body li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--text-dim);
+            font-size: 14.5px;
+            margin-bottom: 8px;
+        }
+
+        .project-body li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+        }
+
+        .media-slot {
+            margin-top: 18px;
+            border: 1px dashed var(--line-bright);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        .media-slot::before {
+            content: "⧉";
+            color: var(--copper);
+            font-size: 14px;
+        }
+
+        /* ALU demo */
+        .alu-demo {
+            margin-top: 20px;
+            border-top: 1px solid var(--line);
+            padding-top: 22px;
+        }
+
+        .alu-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--signal);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .alu-panel {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .bit-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .bit-group .bg-label {
+            font-family: var(--mono);
+            font-size: 10.5px;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+        }
+
+        .bits {
+            display: flex;
+            gap: 6px;
+        }
+
+        .bit {
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--line-bright);
+            background: var(--bg);
+            border-radius: var(--radius);
+            font-family: var(--mono);
+            color: var(--text-dim);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .bit.on {
+            background: var(--copper);
+            border-color: var(--copper);
+            color: #0b1f17;
+            font-weight: 700;
+        }
+
+        .bit:hover {
+            border-color: var(--copper-bright);
+        }
+
+        .op-select {
+            font-family: var(--mono);
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            padding: 9px 10px;
+            font-size: 13px;
+        }
+
+        .op-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .out-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .out-bits {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .out-bit {
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--text-dim);
+            background: var(--bg);
+        }
+
+        .out-bit.lit {
+            background: var(--signal);
+            color: #0b1f17;
+            border-color: var(--signal);
+            font-weight: 700;
+        }
+
+        .flags {
+            display: flex;
+            gap: 14px;
+            margin-top: 14px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-dim);
+        }
+
+        .flags .flag.active {
+            color: var(--copper-bright);
+        }
+
+        /* ---------- EXPERIENCE ---------- */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 6px;
+            bottom: 6px;
+            width: 1px;
+            background: var(--line-bright);
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 36px;
+        }
+
+        .tl-item::before {
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 4px;
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--copper-bright);
+        }
+
+        .tl-role {
+            font-family: var(--mono);
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text);
+        }
+
+        .tl-org {
+            color: var(--copper-bright);
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        .tl-dates {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            margin-top: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .tl-item ul {
+            list-style: none;
+            margin-top: 12px;
+        }
+
+        .tl-item li {
+            position: relative;
+            padding-left: 18px;
+            color: var(--text-dim);
+            font-size: 14.5px;
+            margin-bottom: 6px;
+        }
+
+        .tl-item li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: var(--copper);
+        }
+
+        /* ---------- SKILLS ---------- */
+        .registers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .register {
+            border: 1px solid var(--line-bright);
+            border-radius: var(--radius);
+            background: var(--panel);
+            padding: 20px 22px;
+        }
+
+        .register .reg-name {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--copper);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .register .reg-val {
+            color: var(--text);
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+
+        /* ---------- CONTACT / FOOTER ---------- */
+        footer {
+            padding: 72px 0 48px;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        footer h2 {
+            font-size: 30px;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-family: var(--mono);
+            font-size: 14px;
+        }
+
+        .contact-list a {
+            color: var(--text-dim);
+            transition: color .2s;
+        }
+
+        .contact-list a:hover {
+            color: var(--signal);
+        }
+
+        .contact-list a::before {
+            content: "↳ ";
+            color: var(--copper);
+        }
+
+        .foot-note {
+            margin-top: 56px;
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text-dim);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        @media (max-width:820px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schematic {
+                max-width: 340px;
+                margin-top: 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .registers {
+                grid-template-columns: 1fr;
+            }
+
+            .navlinks {
+                display: none;
+            }
+
+            .alu-panel {
+                gap: 18px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>My Portfolio</h1>
-    <p>Welcome to my portfolio!</p>
+
+    <header>
+        <nav class="wrap">
+            <div class="logo">HS<span>_/portfolio</span></div>
+            <div class="navlinks">
+                <a href="#projects" data-addr="0x01">Projects</a>
+                <a href="#experience" data-addr="0x02">Experience</a>
+                <a href="#skills" data-addr="0x03">Skills</a>
+                <a href="#contact" data-addr="0x04">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="wrap hero-grid">
+            <div>
+                <div class="eyebrow">Guelph, Ontario · Open to Co-op / Internship</div>
+                <h1 class="name">Hasan<br><em>Shariq</em></h1>
+                <p class="role">Computer Engineering student building across the stack — from VHDL and FPGA datapaths up
+                    to full-stack applications. I like problems where the hardware and the software have to agree with
+                    each other.</p>
+                <div class="hero-links">
+                    <a class="btn solid" href="#projects">View Projects</a>
+                    <a class="btn" href="mailto:hshariq@uoguelph.ca">Email</a>
+                    <a class="btn" href="https://github.com/ShariqHas" target="_blank" rel="noopener">GitHub</a>
+                    <a class="btn" href="https://linkedin.com/in/hasan-shariq" target="_blank"
+                        rel="noopener">LinkedIn</a>
+                </div>
+            </div>
+            <div>
+                <svg class="schematic" viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path class="trace hot" d="M20,40 L120,40 L140,60 L140,110" />
+                    <path class="trace" d="M20,120 L90,120 L110,140 L110,190" />
+                    <path class="trace" d="M300,30 L220,30 L200,50 L200,110" />
+                    <path class="trace hot" d="M300,140 L240,140 L220,160 L220,200 L160,200" />
+                    <circle class="node" cx="20" cy="40" r="4" />
+                    <circle class="node" cx="20" cy="120" r="4" />
+                    <circle class="node" cx="300" cy="30" r="4" />
+                    <circle class="node" cx="300" cy="140" r="4" />
+                    <rect x="120" y="100" width="80" height="60" rx="2" fill="#0f2a1f" stroke="#c97c4a"
+                        stroke-width="1.5" />
+                    <text x="132" y="126">ALU</text>
+                    <text x="130" y="142" fill="#6fe7d4">4-BIT</text>
+                    <circle class="node pulse" cx="140" cy="110" r="3" />
+                    <circle class="node pulse" cx="200" cy="110" r="3" />
+                    <text x="14" y="34">CLK</text>
+                    <text x="14" y="114">RST</text>
+                    <text x="272" y="24">OUT</text>
+                    <text x="252" y="134">OVF</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="wrap">
+            <div class="sec-head"><span class="addr">0x00</span>
+                <h2>Education</h2><span class="sec-rule"></span>
+            </div>
+            <div class="about-grid">
+                <div>
+                    <p>I'm a Computer Engineering student at the University of Guelph, drawn to the layer where digital
+                        logic meets real software — designing an ALU in VHDL one term, shipping a full-stack app the
+                        next.</p>
+                    <p>This site collects the projects, coursework, and hands-on work behind that — hardware builds,
+                        software systems, and a hackathon build in between.</p>
+                </div>
+                <div class="edu-card">
+                    <div class="school">University of Guelph</div>
+                    <div class="deg">Bachelor of Engineering — Computer Engineering</div>
+                    <div class="dates">SEPT 2024 — PRESENT</div>
+                    <div class="courses">
+                        <span>Digital Systems Design</span>
+                        <span>Data Structures</span>
+                        <span>Eng. Systems Analysis</span>
+                        <span>OOP</span>
+                        <span>Calculus 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="wrap">
+            <div class="sec-head"><span class="addr">0x01</span>
+                <h2>Projects</h2><span class="sec-rule"></span>
+            </div>
+
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">University Management System</div>
+                        <div class="project-tags">
+                            <span>Java</span><span>JavaFX</span><span>Database</span><span>Full-Stack</span></div>
+                    </div>
+                    <div class="project-addr">MEM[0x00]</div>
+                </div>
+                <div class="project-body">
+                    <ul>
+                        <li>Full-stack system with backend database integration, supporting thousands of student,
+                            faculty, and administrative records.</li>
+                        <li>Role-based access control with secure authentication — admins can create, modify, and manage
+                            users, courses, profiles, and campus events.</li>
+                        <li>Personalized dashboards with real-time updates for courses, events, and notifications.</li>
+                    </ul>
+                    <div class="media-slot">Screenshot / demo GIF slot — drop in dashboard views here</div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Autonomous Wheelchair</div>
+                        <div class="project-tags">
+                            <span>AutoCAD</span><span>C</span><span>Meccano</span><span>Arduino</span></div>
+                    </div>
+                    <div class="project-addr">MEM[0x01]</div>
+                </div>
+                <div class="project-body">
+                    <ul>
+                        <li>Group-built autonomous wheelchair using Arduino microcontrollers and breadboards, programmed
+                            in C for mobility and assistive functions.</li>
+                        <li>Prototyped and iterated the frame in Meccano to optimize structure, mobility, and
+                            durability.</li>
+                        <li>Custom-built trash-launching and weight-pulling mechanisms for added real-world
+                            functionality.</li>
+                        <li>Modeled 20+ parts in AutoCAD for a precise final design schematic.</li>
+                        <li>Validated the design against speed, weight capacity, incline pulling, and launcher
+                            precision.</li>
+                    </ul>
+                    <div class="media-slot">Photo slot — prototype, final build, and AutoCAD renders go here</div>
+                </div>
+            </div>
+
+            <!-- Project 3: ALU with interactive demo -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">4-Bit Arithmetic Logic Unit</div>
+                        <div class="project-tags"><span>VHDL</span><span>FPGA</span><span>Nexys
+                                3</span><span>Adept</span></div>
+                    </div>
+                    <div class="project-addr">MEM[0x02]</div>
+                </div>
+                <div class="project-body">
+                    <ul>
+                        <li>4-bit ALU in VHDL supporting 14 arithmetic and logic operations, demonstrating datapath and
+                            control logic design.</li>
+                        <li>Deployed to a Nexys 3 FPGA — 100% functional correctness across all 16 output states through
+                            real-time hardware testing.</li>
+                        <li>Hierarchical design separating arithmetic, logic, control, and display units for testability
+                            and scalability.</li>
+                    </ul>
+                    <div class="media-slot">Photo slot — FPGA board + hardware test setup goes here</div>
+
+                    <div class="alu-demo">
+                        <div class="alu-label">▸ Try it — a JS re-implementation of the ALU's core logic</div>
+                        <div class="alu-panel">
+                            <div class="bit-group">
+                                <div class="bg-label">INPUT A</div>
+                                <div class="bits" id="bitsA"></div>
+                            </div>
+                            <div class="bit-group">
+                                <div class="bg-label">INPUT B</div>
+                                <div class="bits" id="bitsB"></div>
+                            </div>
+                            <div class="op-group">
+                                <div class="bg-label">OPERATION</div>
+                                <select class="op-select" id="opSelect">
+                                    <option value="add">ADD (A + B)</option>
+                                    <option value="sub">SUB (A − B)</option>
+                                    <option value="and">AND</option>
+                                    <option value="or">OR</option>
+                                    <option value="xor">XOR</option>
+                                    <option value="nand">NAND</option>
+                                    <option value="not">NOT A</option>
+                                </select>
+                            </div>
+                            <div class="out-group">
+                                <div class="bg-label">OUTPUT</div>
+                                <div class="out-bits" id="bitsOut"></div>
+                            </div>
+                        </div>
+                        <div class="flags">
+                            <span>DEC: <b id="decOut">0</b></span>
+                            <span class="flag" id="flagOvf">OVF</span>
+                            <span class="flag" id="flagZero">ZERO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="wrap">
+            <div class="sec-head"><span class="addr">0x02</span>
+                <h2>Experience</h2><span class="sec-rule"></span>
+            </div>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-role">Best UI Award — Google Developer Software Hackathon</div>
+                    <div class="tl-org">MLH, University of Guelph</div>
+                    <div class="tl-dates">MAY 2025</div>
+                    <ul>
+                        <li>Led UI/UX design and frontend implementation, earning the Best UI Award at a competitive MLH
+                            hackathon.</li>
+                        <li>Built an AI-driven PC component recommendation platform tailored to gaming, creative, and
+                            productivity workloads.</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-role">Package Handling and Management</div>
+                    <div class="tl-org">Uline Warehouse, Milton, Ontario</div>
+                    <div class="tl-dates">APRIL 2025 — MAY 2025</div>
+                    <ul>
+                        <li>Supported high-throughput warehouse operations, handling and staging large volumes of
+                            inventory under strict productivity and safety standards.</li>
+                        <li>Followed standardized operating procedures for safe loading, damage prevention, and
+                            efficient space use.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="wrap">
+            <div class="sec-head"><span class="addr">0x03</span>
+                <h2>Skills</h2><span class="sec-rule"></span>
+            </div>
+            <div class="registers">
+                <div class="register">
+                    <div class="reg-name">Languages</div>
+                    <div class="reg-val">C, C++, Java, Python, VHDL, Verilog, HTML, CSS, JavaScript</div>
+                </div>
+                <div class="register">
+                    <div class="reg-name">Hardware &amp; Digital Design</div>
+                    <div class="reg-val">FPGA Design (Nexys 3), Digital Logic, Hierarchical Design, ALU &amp; Datapath
+                        Design</div>
+                </div>
+                <div class="register">
+                    <div class="reg-name">Frameworks &amp; Libraries</div>
+                    <div class="reg-val">React, Node.js, Flask, FastAPI, JavaFX, pandas, NumPy, Matplotlib</div>
+                </div>
+                <div class="register">
+                    <div class="reg-name">Tools</div>
+                    <div class="reg-val">Git, Docker, MATLAB, Google Cloud Platform, VS Code, AutoCAD, IntelliJ, Excel,
+                        Office365, SolidWorks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="wrap">
+            <div class="sec-head"><span class="addr">0x04</span>
+                <h2>Contact</h2><span class="sec-rule"></span>
+            </div>
+            <div class="contact-grid">
+                <p style="color:var(--text-dim); max-width:38ch; font-size:16px;">Looking for co-op, internship, or
+                    project collaborators. Reach out any time.</p>
+                <div class="contact-list">
+                    <a href="mailto:hshariq@uoguelph.ca">hshariq@uoguelph.ca</a>
+                    <a href="tel:4169981316">416-998-1316</a>
+                    <a href="https://linkedin.com/in/hasan-shariq" target="_blank"
+                        rel="noopener">linkedin.com/in/hasan-shariq</a>
+                    <a href="https://github.com/ShariqHas" target="_blank" rel="noopener">github.com/ShariqHas</a>
+                </div>
+            </div>
+            <div class="foot-note">
+                <span>© 2026 Hasan Shariq</span>
+                <span>Built with Java on the FPGA, HTML on the web.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ---- bit toggle setup ----
+        const NBITS = 4;
+        let a = [0, 0, 1, 1]; // MSB..LSB defaults
+        let b = [0, 1, 0, 1];
+
+        function renderBits(containerId, arr, editable) {
+            const el = document.getElementById(containerId);
+            el.innerHTML = '';
+            arr.forEach((v, i) => {
+                const btn = document.createElement(editable ? 'button' : 'div');
+                btn.className = 'bit' + (v ? ' on' : '');
+                btn.textContent = v;
+                if (editable) {
+                    btn.setAttribute('aria-label', 'toggle bit ' + i);
+                    btn.addEventListener('click', () => {
+                        arr[i] = arr[i] ? 0 : 1;
+                        renderBits(containerId, arr, true);
+                        compute();
+                    });
+                }
+                el.appendChild(btn);
+            });
+        }
+
+        function toDec(arr) {
+            return arr.reduce((acc, v) => acc * 2 + v, 0);
+        }
+        function toBin(n, bits) {
+            n = ((n % (1 << bits)) + (1 << bits)) % (1 << bits);
+            return n.toString(2).padStart(bits, '0').split('').map(Number);
+        }
+
+        function compute() {
+            const op = document.getElementById('opSelect').value;
+            const A = toDec(a), B = toDec(b);
+            let result = 0, ovf = false;
+
+            switch (op) {
+                case 'add': { const r = A + B; result = r % 16; ovf = r > 15; break; }
+                case 'sub': { const r = A - B; result = ((r % 16) + 16) % 16; ovf = r < 0; break; }
+                case 'and': result = A & B; break;
+                case 'or': result = A | B; break;
+                case 'xor': result = A ^ B; break;
+                case 'nand': result = (~(A & B)) & 0b1111; break;
+                case 'not': result = (~A) & 0b1111; break;
+            }
+
+            const outBits = toBin(result, 4);
+            const outEl = document.getElementById('bitsOut');
+            outEl.innerHTML = '';
+            outBits.forEach(v => {
+                const d = document.createElement('div');
+                d.className = 'out-bit' + (v ? ' lit' : '');
+                d.textContent = v;
+                outEl.appendChild(d);
+            });
+
+            document.getElementById('decOut').textContent = result;
+            document.getElementById('flagOvf').classList.toggle('active', ovf);
+            document.getElementById('flagZero').classList.toggle('active', result === 0);
+        }
+
+        renderBits('bitsA', a, true);
+        renderBits('bitsB', b, true);
+        document.getElementById('opSelect').addEventListener('change', compute);
+        compute();
+    </script>
 
 </body>
 
