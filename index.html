@@ -138,8 +138,8 @@
                     <div class="project-addr">MEM[0x01]</div>
                 </div>
                 <div class="project-body has-media">
-                    <button type="button" class="media-trigger" id="wheelchairTrigger" aria-haspopup="dialog"
-                        aria-controls="wheelchairModal">
+                    <button type="button" class="media-trigger" data-modal-target="wheelchairModal"
+                        aria-haspopup="dialog" aria-controls="wheelchairModal">
                         <img src="Assets/wheelchair.jpg" alt="Autonomous wheelchair prototype on a workbench"
                             class="thumb-img" loading="lazy">
                         <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
@@ -216,6 +216,69 @@
                 </div>
             </div>
 
+            <!-- Project 4: Kinder Egg Rescue Boat Toy — clickable gallery -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Kinder Egg Rescue Boat Toy</div>
+                        <div class="project-tags">
+                            <span>SolidWorks</span><span>CAD</span><span>Mechanical Design</span><span>3D
+                                Printing</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">MEM[0x03]</div>
+                </div>
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" data-modal-target="kinderEggModal"
+                        aria-haspopup="dialog" aria-controls="kinderEggModal">
+                        <img src="Assets/kinderegg/example.jpg" alt="Kinder Egg Rescue Boat Toy assembly"
+                            class="thumb-img" loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
+                    </button>
+                    <ul>
+                        <li>Designed and modeled an original mechanical assembly in SolidWorks, engineering individual
+                            components to meet strict dimensional constraints while ensuring proper fit and function
+                            upon assembly.</li>
+                        <li>Developed a spring-loaded catapult launch mechanism, creating detailed CAD drawings for the
+                            trigger, release, and projectile system to ensure reliable mechanical performance.</li>
+                        <li>Applied precise measurement and tolerance considerations throughout the design process,
+                            validating designs through 3D printing and physical testing before finalizing
+                            documentation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 5: Mechanical Toy Reverse Engineering — clickable gallery -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Mechanical Toy Reverse Engineering</div>
+                        <div class="project-tags">
+                            <span>SolidWorks</span><span>CAD</span><span>Assembly Design</span><span>Animation</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">MEM[0x04]</div>
+                </div>
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" data-modal-target="toyReverseModal"
+                        aria-haspopup="dialog" aria-controls="toyReverseModal">
+                        <img src="Assets/toyreverse/example.jpg" alt="Reverse-engineered mechanical toy assembly"
+                            class="thumb-img" loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
+                    </button>
+                    <ul>
+                        <li>Reverse-engineered a multi-piece mechanical toy by physically measuring each component and
+                            producing detailed CAD drawings in SolidWorks, ensuring dimensional accuracy consistent
+                            with real-world manufacturing standards.</li>
+                        <li>Developed a fully constrained SolidWorks assembly to model part interactions and
+                            construction sequence, translating physical measurements into structured technical
+                            documentation.</li>
+                        <li>Created a construction animation to visually communicate assembly order and part
+                            relationships, supporting clear technical understanding for future reference.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -224,30 +287,64 @@
             <div class="sec-head"><span class="addr">0x02</span>
                 <h2>Experience</h2><span class="sec-rule"></span>
             </div>
-            <div class="timeline">
-                <div class="tl-item">
-                    <div class="tl-role">Best UI Award — Google Developer Software Hackathon</div>
-                    <div class="tl-org">MLH, University of Guelph</div>
-                    <div class="tl-dates">MAY 2025</div>
-                    <ul>
-                        <li>Led UI/UX design and frontend implementation, earning the Best UI Award at a competitive MLH
-                            hackathon.</li>
-                        <li>Built an AI-driven PC component recommendation platform tailored to gaming, creative, and
-                            productivity workloads.</li>
-                    </ul>
+
+            <!-- Experience 1 -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Best UI Award — Google Developer Software Hackathon</div>
+                        <div class="project-tags"><span>MLH</span><span>Hackathon</span><span>UI/UX</span></div>
+                    </div>
+                    <div class="project-addr">LOG[0x00]</div>
                 </div>
-                <div class="tl-item">
-                    <div class="tl-role">Package Handling and Management</div>
-                    <div class="tl-org">Uline Warehouse, Milton, Ontario</div>
-                    <div class="tl-dates">APRIL 2025 — MAY 2025</div>
-                    <ul>
-                        <li>Supported high-throughput warehouse operations, handling and staging large volumes of
-                            inventory under strict productivity and safety standards.</li>
-                        <li>Followed standardized operating procedures for safe loading, damage prevention, and
-                            efficient space use.</li>
-                    </ul>
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" data-modal-target="hackathonModal"
+                        aria-haspopup="dialog" aria-controls="hackathonModal">
+                        <img src="Assets/hackathon/example.jpg" alt="Google Developer Software Hackathon team photo"
+                            class="thumb-img" loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View photo</span>
+                    </button>
+                    <div>
+                        <div class="tl-org">MLH, University of Guelph</div>
+                        <div class="tl-dates">MAY 2025</div>
+                        <ul>
+                            <li>Led UI/UX design and frontend implementation, earning the Best UI Award at a
+                                competitive MLH hackathon.</li>
+                            <li>Built an AI-driven PC component recommendation platform tailored to gaming, creative,
+                                and productivity workloads.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <!-- Experience 2 -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Package Handling and Management</div>
+                        <div class="project-tags"><span>Warehouse</span><span>Operations</span></div>
+                    </div>
+                    <div class="project-addr">LOG[0x01]</div>
+                </div>
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" data-modal-target="ulineModal" aria-haspopup="dialog"
+                        aria-controls="ulineModal">
+                        <img src="Assets/uline/example.jpg" alt="Uline warehouse" class="thumb-img" loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View photo</span>
+                    </button>
+                    <div>
+                        <div class="tl-org">Uline Warehouse, Milton, Ontario</div>
+                        <div class="tl-dates">APRIL 2025 — MAY 2025</div>
+                        <ul>
+                            <li>Supported high-throughput warehouse operations, handling and staging large volumes of
+                                inventory under strict productivity and safety standards.</li>
+                            <li>Followed standardized operating procedures for safe loading, damage prevention, and
+                                efficient space use.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -302,17 +399,18 @@
         </div>
     </footer>
 
+    <!-- ==================== MODALS ==================== -->
+
     <!-- Autonomous Wheelchair gallery modal -->
     <div class="modal-overlay" id="wheelchairModal" role="dialog" aria-modal="true"
         aria-labelledby="wheelchairModalTitle" hidden>
         <div class="modal-panel">
-            <button type="button" class="modal-close" id="wheelchairModalClose" aria-label="Close gallery">✕</button>
-
+            <button type="button" class="modal-close" data-modal-close aria-label="Close gallery">✕</button>
             <div class="modal-top">
-                <video class="modal-media crop-square" id="wheelchairVideoMain" muted loop playsinline
+                <video class="modal-media crop-square" id="wheelchairVideoMain" data-modal-video muted loop playsinline
                     preload="metadata">
-                    <source src="Assets/360Wheelchair.mp4" type="video/mp4">
-                    <source src="Assets/360Wheelchair.mov" type="video/quicktime">
+                    <source src="Assets/wheelchair/example.mp4" type="video/mp4">
+                    <source src="Assets/wheelchair/example.mov" type="video/quicktime">
                 </video>
                 <div class="modal-desc">
                     <h3 id="wheelchairModalTitle">Autonomous Wheelchair — Build Walkthrough</h3>
@@ -323,7 +421,6 @@
                         the mechanism solves and any design trade-offs worth calling out.</p>
                 </div>
             </div>
-
             <div class="modal-bottom">
                 <figure class="modal-cell">
                     <img src="Assets/wheelchair.jpg" alt="Autonomous wheelchair prototype on a workbench"
@@ -331,13 +428,117 @@
                     <figcaption>Frame prototype, Meccano build</figcaption>
                 </figure>
                 <figure class="modal-cell">
-                    <video class="modal-media crop-square" id="wheelchairVideoMoving" muted loop playsinline
-                        preload="metadata">
-                        <source src="Assets/movingwheelchair.mp4" type="video/mp4">
-                        <source src="Assets/movingwheelchair.mov" type="video/quicktime">
+                    <video class="modal-media crop-square" id="wheelchairVideoMoving" data-modal-video muted loop
+                        playsinline preload="metadata">
+                        <source src="Assets/wheelchair/example-2.mp4" type="video/mp4">
+                        <source src="Assets/wheelchair/example-2.mov" type="video/quicktime">
                     </video>
                     <figcaption>Drive test, final build</figcaption>
                 </figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kinder Egg Rescue Boat Toy gallery modal -->
+    <div class="modal-overlay" id="kinderEggModal" role="dialog" aria-modal="true" aria-labelledby="kinderEggModalTitle"
+        hidden>
+        <div class="modal-panel">
+            <button type="button" class="modal-close" data-modal-close aria-label="Close gallery">✕</button>
+            <div class="modal-top">
+                <video class="modal-media crop-square" id="kinderEggVideoMain" data-modal-video muted loop playsinline
+                    preload="metadata">
+                    <source src="Assets/kinderegg/example.mp4" type="video/mp4">
+                    <source src="Assets/kinderegg/example.mov" type="video/quicktime">
+                </video>
+                <div class="modal-desc">
+                    <h3 id="kinderEggModalTitle">Kinder Egg Rescue Boat Toy — Build Overview</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this paragraph with a short
+                        walkthrough of the launch mechanism in action — trigger, spring release, and projectile
+                        travel.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Add a line on tolerance
+                        challenges solved during fitting and printing.</p>
+                </div>
+            </div>
+            <div class="modal-bottom">
+                <figure class="modal-cell">
+                    <img src="Assets/kinderegg/example.jpg" alt="Kinder Egg Rescue Boat Toy assembly"
+                        class="modal-media crop-square">
+                    <figcaption>Assembled boat + catapult mechanism</figcaption>
+                </figure>
+                <figure class="modal-cell">
+                    <video class="modal-media crop-square" id="kinderEggVideoSecondary" data-modal-video muted loop
+                        playsinline preload="metadata">
+                        <source src="Assets/kinderegg/example-2.mp4" type="video/mp4">
+                        <source src="Assets/kinderegg/example-2.mov" type="video/quicktime">
+                    </video>
+                    <figcaption>Launch mechanism test</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mechanical Toy Reverse Engineering gallery modal -->
+    <div class="modal-overlay" id="toyReverseModal" role="dialog" aria-modal="true"
+        aria-labelledby="toyReverseModalTitle" hidden>
+        <div class="modal-panel">
+            <button type="button" class="modal-close" data-modal-close aria-label="Close gallery">✕</button>
+            <div class="modal-top">
+                <video class="modal-media crop-square" id="toyReverseVideoMain" data-modal-video muted loop playsinline
+                    preload="metadata">
+                    <source src="Assets/toyreverse/example.mp4" type="video/mp4">
+                    <source src="Assets/toyreverse/example.mov" type="video/quicktime">
+                </video>
+                <div class="modal-desc">
+                    <h3 id="toyReverseModalTitle">Mechanical Toy Reverse Engineering — Assembly Walkthrough</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this paragraph with a short
+                        walkthrough of the construction animation — assembly order and how the parts constrain each
+                        other.</p>
+                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Add a line on measurement
+                        method and how accuracy was verified against the original toy.</p>
+                </div>
+            </div>
+            <div class="modal-bottom">
+                <figure class="modal-cell">
+                    <img src="Assets/toyreverse/example.jpg" alt="Reverse-engineered mechanical toy assembly"
+                        class="modal-media crop-square">
+                    <figcaption>Fully constrained SolidWorks assembly</figcaption>
+                </figure>
+                <figure class="modal-cell">
+                    <video class="modal-media crop-square" id="toyReverseVideoSecondary" data-modal-video muted loop
+                        playsinline preload="metadata">
+                        <source src="Assets/toyreverse/example-2.mp4" type="video/mp4">
+                        <source src="Assets/toyreverse/example-2.mov" type="video/quicktime">
+                    </video>
+                    <figcaption>Construction animation, assembly order</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hackathon experience photo modal (single image) -->
+    <div class="modal-overlay" id="hackathonModal" role="dialog" aria-modal="true" aria-labelledby="hackathonModalTitle"
+        hidden>
+        <div class="modal-panel modal-panel--single">
+            <button type="button" class="modal-close" data-modal-close aria-label="Close photo">✕</button>
+            <img src="Assets/hackathon/example.jpg" alt="Google Developer Software Hackathon team photo"
+                class="modal-media modal-photo">
+            <div class="modal-desc">
+                <h3 id="hackathonModalTitle">Best UI Award — Google Developer Software Hackathon</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with a line about the team,
+                    the build, and the moment the photo captures.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Uline experience photo modal (single image) -->
+    <div class="modal-overlay" id="ulineModal" role="dialog" aria-modal="true" aria-labelledby="ulineModalTitle" hidden>
+        <div class="modal-panel modal-panel--single">
+            <button type="button" class="modal-close" data-modal-close aria-label="Close photo">✕</button>
+            <img src="Assets/uline/example.jpg" alt="Uline warehouse" class="modal-media modal-photo">
+            <div class="modal-desc">
+                <h3 id="ulineModalTitle">Package Handling and Management</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with a line about the role
+                    and the environment shown in the photo.</p>
             </div>
         </div>
     </div>
@@ -410,53 +611,65 @@
         document.getElementById('opSelect').addEventListener('change', compute);
         compute();
 
-        // ---- Autonomous Wheelchair gallery modal ----
+        // ---- Generic media-gallery / photo modal system ----
+        // Works for any number of modals: each trigger points at a modal via
+        // data-modal-target="<id>", and each modal closes via any element
+        // carrying data-modal-close, clicking the dark backdrop, or Escape.
         (function () {
-            const trigger = document.getElementById('wheelchairTrigger');
-            const overlay = document.getElementById('wheelchairModal');
-            const closeBtn = document.getElementById('wheelchairModalClose');
-            const panel = overlay.querySelector('.modal-panel');
-            const videoMain = document.getElementById('wheelchairVideoMain');
-            const videoMoving = document.getElementById('wheelchairVideoMoving');
-            const videos = [videoMain, videoMoving];
+            let openOverlay = null;
             let lastFocused = null;
 
-            function playVideos() {
-                videos.forEach(v => { v.currentTime = 0; v.play().catch(() => { }); });
-            }
-            function pauseVideos() {
-                videos.forEach(v => v.pause());
+            function getVideos(overlay) {
+                return Array.from(overlay.querySelectorAll('[data-modal-video]'));
             }
 
-            function openModal() {
+            function openModal(overlay) {
+                if (openOverlay) closeModal(openOverlay, { skipFocusReturn: true });
+
                 lastFocused = document.activeElement;
                 overlay.hidden = false;
                 document.body.classList.add('modal-open');
-                // force reflow so the transition runs
-                void overlay.offsetWidth;
+                void overlay.offsetWidth; // force reflow so the transition runs
                 overlay.classList.add('open');
-                playVideos();
-                closeBtn.focus();
+
+                getVideos(overlay).forEach(v => { v.currentTime = 0; v.play().catch(() => { }); });
+
+                const closeBtn = overlay.querySelector('[data-modal-close]');
+                if (closeBtn) closeBtn.focus();
+
+                openOverlay = overlay;
                 document.addEventListener('keydown', onKeydown);
             }
 
-            function closeModal() {
+            function closeModal(overlay, opts) {
+                opts = opts || {};
                 overlay.classList.remove('open');
                 document.body.classList.remove('modal-open');
-                pauseVideos();
-                document.removeEventListener('keydown', onKeydown);
+                getVideos(overlay).forEach(v => v.pause());
+
                 const onEnd = () => {
                     overlay.hidden = true;
                     overlay.removeEventListener('transitionend', onEnd);
                 };
                 overlay.addEventListener('transitionend', onEnd);
-                if (lastFocused) lastFocused.focus();
+
+                if (openOverlay === overlay) {
+                    openOverlay = null;
+                    document.removeEventListener('keydown', onKeydown);
+                }
+                if (!opts.skipFocusReturn && lastFocused) lastFocused.focus();
             }
 
             function onKeydown(e) {
-                if (e.key === 'Escape') closeModal();
+                if (!openOverlay) return;
+                if (e.key === 'Escape') {
+                    closeModal(openOverlay);
+                    return;
+                }
                 if (e.key === 'Tab') {
-                    const focusables = overlay.querySelectorAll('button, [href], video, [tabindex]:not([tabindex="-1"])');
+                    const focusables = openOverlay.querySelectorAll(
+                        'button, [href], video, [tabindex]:not([tabindex="-1"])'
+                    );
                     if (!focusables.length) return;
                     const first = focusables[0], last = focusables[focusables.length - 1];
                     if (e.shiftKey && document.activeElement === first) {
@@ -467,10 +680,19 @@
                 }
             }
 
-            trigger.addEventListener('click', openModal);
-            closeBtn.addEventListener('click', closeModal);
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) closeModal();
+            document.querySelectorAll('[data-modal-target]').forEach(trigger => {
+                const overlay = document.getElementById(trigger.getAttribute('data-modal-target'));
+                if (!overlay) return;
+                trigger.addEventListener('click', () => openModal(overlay));
+            });
+
+            document.querySelectorAll('.modal-overlay').forEach(overlay => {
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closeModal(overlay);
+                });
+                overlay.querySelectorAll('[data-modal-close]').forEach(btn => {
+                    btn.addEventListener('click', () => closeModal(overlay));
+                });
             });
         })();
     </script>
