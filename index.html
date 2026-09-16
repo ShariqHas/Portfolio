@@ -103,30 +103,7 @@
                 <h2>Projects</h2><span class="sec-rule"></span>
             </div>
 
-            <!-- Project 1 -->
-            <div class="project">
-                <div class="project-head">
-                    <div>
-                        <div class="project-title">University Management System</div>
-                        <div class="project-tags">
-                            <span>Java</span><span>JavaFX</span><span>Database</span><span>Full-Stack</span>
-                        </div>
-                    </div>
-                    <div class="project-addr">MEM[0x00]</div>
-                </div>
-                <div class="project-body">
-                    <ul>
-                        <li>Full-stack system with backend database integration, supporting thousands of student,
-                            faculty, and administrative records.</li>
-                        <li>Role-based access control with secure authentication — admins can create, modify, and manage
-                            users, courses, profiles, and campus events.</li>
-                        <li>Personalized dashboards with real-time updates for courses, events, and notifications.</li>
-                    </ul>
-                    <div class="media-slot">Screenshot / demo GIF slot — drop in dashboard views here</div>
-                </div>
-            </div>
-
-            <!-- Project 2: Autonomous Wheelchair — clickable gallery -->
+            <!-- Project 1: Autonomous Wheelchair — video / image / video gallery -->
             <div class="project">
                 <div class="project-head">
                     <div>
@@ -135,7 +112,7 @@
                             <span>AutoCAD</span><span>C</span><span>Meccano</span><span>Arduino</span>
                         </div>
                     </div>
-                    <div class="project-addr">MEM[0x01]</div>
+                    <div class="project-addr">MEM[0x00]</div>
                 </div>
                 <div class="project-body has-media">
                     <button type="button" class="media-trigger" data-modal-target="wheelchairModal"
@@ -158,7 +135,124 @@
                 </div>
             </div>
 
-            <!-- Project 3: ALU with interactive demo -->
+            <!-- Project 2: Kinder Egg Rescue Boat Toy — image / image / video gallery -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Kinder Egg Rescue Boat Toy</div>
+                        <div class="project-tags">
+                            <span>SolidWorks</span><span>CAD</span><span>Mechanical Design</span><span>3D
+                                Printing</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">MEM[0x01]</div>
+                </div>
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" data-modal-target="kinderEggModal"
+                        aria-haspopup="dialog" aria-controls="kinderEggModal">
+                        <img src="Assets/boat.jpg" alt="Kinder Egg Rescue Boat Toy assembly" class="thumb-img"
+                            loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
+                    </button>
+                    <ul>
+                        <li>Designed and modeled an original mechanical assembly in SolidWorks, engineering individual
+                            components to meet strict dimensional constraints while ensuring proper fit and function
+                            upon assembly.</li>
+                        <li>Developed a spring-loaded catapult launch mechanism, creating detailed CAD drawings for the
+                            trigger, release, and projectile system to ensure reliable mechanical performance.</li>
+                        <li>Applied precise measurement and tolerance considerations throughout the design process,
+                            validating designs through 3D printing and physical testing before finalizing
+                            documentation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 3: Mechanical Toy Reverse Engineering — single video only -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Mechanical Toy Reverse Engineering</div>
+                        <div class="project-tags">
+                            <span>SolidWorks</span><span>CAD</span><span>Assembly Design</span><span>Animation</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">MEM[0x02]</div>
+                </div>
+                <div class="project-body has-media">
+                    <button type="button" class="media-trigger" data-modal-target="toyReverseModal"
+                        aria-haspopup="dialog" aria-controls="toyReverseModal">
+                        <img src="Assets/isometric_rover_assembly.png" alt="Reverse-engineered mechanical toy assembly"
+                            class="thumb-img" loading="lazy">
+                        <span class="media-hint"><span class="hint-icon">▸</span> View construction animation</span>
+                    </button>
+                    <ul>
+                        <li>Reverse-engineered a multi-piece mechanical toy by physically measuring each component and
+                            producing detailed CAD drawings in SolidWorks, ensuring dimensional accuracy consistent
+                            with real-world manufacturing standards.</li>
+                        <li>Developed a fully constrained SolidWorks assembly to model part interactions and
+                            construction sequence, translating physical measurements into structured technical
+                            documentation.</li>
+                        <li>Created a construction animation to visually communicate assembly order and part
+                            relationships, supporting clear technical understanding for future reference.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 4: 16-Bit Single-Cycle CPU — no media -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">16-Bit Single-Cycle CPU</div>
+                        <div class="project-tags">
+                            <span>VHDL</span><span>Vivado</span><span>FPGA</span><span>Digital Design</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">MEM[0x03]</div>
+                </div>
+                <div class="project-body">
+                    <ul>
+                        <li>Designed and implemented a complete single-cycle CPU in VHDL, integrating a program
+                            counter, instruction memory, data memory, register file, ALU, and control unit into a
+                            fully functional processor.</li>
+                        <li>Extended the CPU's instruction set to support control flow instructions (branch-not-equal
+                            and jump), requiring custom multiplexer logic and control signal design to correctly route
+                            register operands and update the program counter.</li>
+                        <li>Debugged complex datapath issues using RTL schematic analysis and simulation waveforms,
+                            resolving synthesis and timing issues including memory addressing errors, byte-endianness
+                            mismatches, and signal reset conflicts.</li>
+                        <li>Verified complete instruction execution and control flow behavior through simulation
+                            testbenches, confirming correct data flow, branching, and jumping across all supported
+                            instructions.</li>
+                        <li>Collaborated with a team of 3 to integrate previously developed components (ALU, register
+                            file, control unit) into a unified system architecture, applying modular design principles
+                            from earlier lab work.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 5: University Management System — no media -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">University Management System</div>
+                        <div class="project-tags">
+                            <span>Java</span><span>JavaFX</span><span>Database</span><span>Full-Stack</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">MEM[0x04]</div>
+                </div>
+                <div class="project-body">
+                    <ul>
+                        <li>Full-stack system with backend database integration, supporting thousands of student,
+                            faculty, and administrative records.</li>
+                        <li>Role-based access control with secure authentication — admins can create, modify, and manage
+                            users, courses, profiles, and campus events.</li>
+                        <li>Personalized dashboards with real-time updates for courses, events, and notifications.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 6: 4-Bit ALU — no media, interactive demo retained -->
             <div class="project">
                 <div class="project-head">
                     <div>
@@ -166,7 +260,7 @@
                         <div class="project-tags"><span>VHDL</span><span>FPGA</span><span>Nexys
                                 3</span><span>Adept</span></div>
                     </div>
-                    <div class="project-addr">MEM[0x02]</div>
+                    <div class="project-addr">MEM[0x05]</div>
                 </div>
                 <div class="project-body">
                     <ul>
@@ -177,7 +271,6 @@
                         <li>Hierarchical design separating arithmetic, logic, control, and display units for testability
                             and scalability.</li>
                     </ul>
-                    <div class="media-slot">Photo slot — FPGA board + hardware test setup goes here</div>
 
                     <div class="alu-demo">
                         <div class="alu-label">▸ Try it — a JS re-implementation of the ALU's core logic</div>
@@ -216,69 +309,6 @@
                 </div>
             </div>
 
-            <!-- Project 4: Kinder Egg Rescue Boat Toy — clickable gallery -->
-            <div class="project">
-                <div class="project-head">
-                    <div>
-                        <div class="project-title">Kinder Egg Rescue Boat Toy</div>
-                        <div class="project-tags">
-                            <span>SolidWorks</span><span>CAD</span><span>Mechanical Design</span><span>3D
-                                Printing</span>
-                        </div>
-                    </div>
-                    <div class="project-addr">MEM[0x03]</div>
-                </div>
-                <div class="project-body has-media">
-                    <button type="button" class="media-trigger" data-modal-target="kinderEggModal"
-                        aria-haspopup="dialog" aria-controls="kinderEggModal">
-                        <img src="Assets/kinderegg/example.jpg" alt="Kinder Egg Rescue Boat Toy assembly"
-                            class="thumb-img" loading="lazy">
-                        <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
-                    </button>
-                    <ul>
-                        <li>Designed and modeled an original mechanical assembly in SolidWorks, engineering individual
-                            components to meet strict dimensional constraints while ensuring proper fit and function
-                            upon assembly.</li>
-                        <li>Developed a spring-loaded catapult launch mechanism, creating detailed CAD drawings for the
-                            trigger, release, and projectile system to ensure reliable mechanical performance.</li>
-                        <li>Applied precise measurement and tolerance considerations throughout the design process,
-                            validating designs through 3D printing and physical testing before finalizing
-                            documentation.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Project 5: Mechanical Toy Reverse Engineering — clickable gallery -->
-            <div class="project">
-                <div class="project-head">
-                    <div>
-                        <div class="project-title">Mechanical Toy Reverse Engineering</div>
-                        <div class="project-tags">
-                            <span>SolidWorks</span><span>CAD</span><span>Assembly Design</span><span>Animation</span>
-                        </div>
-                    </div>
-                    <div class="project-addr">MEM[0x04]</div>
-                </div>
-                <div class="project-body has-media">
-                    <button type="button" class="media-trigger" data-modal-target="toyReverseModal"
-                        aria-haspopup="dialog" aria-controls="toyReverseModal">
-                        <img src="Assets/toyreverse/example.jpg" alt="Reverse-engineered mechanical toy assembly"
-                            class="thumb-img" loading="lazy">
-                        <span class="media-hint"><span class="hint-icon">▸</span> View build gallery</span>
-                    </button>
-                    <ul>
-                        <li>Reverse-engineered a multi-piece mechanical toy by physically measuring each component and
-                            producing detailed CAD drawings in SolidWorks, ensuring dimensional accuracy consistent
-                            with real-world manufacturing standards.</li>
-                        <li>Developed a fully constrained SolidWorks assembly to model part interactions and
-                            construction sequence, translating physical measurements into structured technical
-                            documentation.</li>
-                        <li>Created a construction animation to visually communicate assembly order and part
-                            relationships, supporting clear technical understanding for future reference.</li>
-                    </ul>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -288,22 +318,94 @@
                 <h2>Experience</h2><span class="sec-rule"></span>
             </div>
 
-            <!-- Experience 1 -->
+            <!-- Experience 1: UX & Web Experience Strategist -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">UX &amp; Web Experience Strategist</div>
+                        <div class="project-tags"><span>Riipen</span><span>UX Research</span><span>WordPress</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">LOG[0x00]</div>
+                </div>
+                <div class="project-body has-media">
+                    <div class="media-frame">
+                        <img src="Assets/riipenlogo.jpg" alt="UX & Web Experience Strategist internship"
+                            class="thumb-img" loading="lazy">
+                    </div>
+                    <div>
+                        <div class="tl-org">Riipen · Internship — CookHome</div>
+                        <div class="tl-dates">FEB 2026 — MAR 2026 · 2 MOS</div>
+                        <div class="tl-loc">Ontario, Canada · Remote</div>
+                        <ul>
+                            <li>Conducted user research and analyzed user feedback to identify opportunities to
+                                improve engagement, usability, and overall user experience on the CookHome platform.
+                            </li>
+                            <li>Managed and updated the CookHome website using WordPress, implementing content,
+                                layout, and functionality updates to improve the user experience.</li>
+                            <li>Integrated geolocation functionality using Google Maps, enabling users to interact
+                                with location-based features and better connect with local home cooks and consumers.
+                            </li>
+                            <li>Designed and developed interface prototypes to visualize proposed UX improvements and
+                                explore potential design solutions.</li>
+                            <li>Prepared a user research report and stakeholder presentation summarizing findings,
+                                proposed improvements, prototypes, and engagement strategies.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 2: Client Onboarding & Systems Optimization Associate -->
+            <div class="project">
+                <div class="project-head">
+                    <div>
+                        <div class="project-title">Client Onboarding &amp; Systems Optimization Associate</div>
+                        <div class="project-tags"><span>Riipen</span><span>Process
+                                Improvement</span><span>Operations</span>
+                        </div>
+                    </div>
+                    <div class="project-addr">LOG[0x01]</div>
+                </div>
+                <div class="project-body has-media">
+                    <div class="media-frame">
+                        <img src="Assets/impactlogo.png"
+                            alt="Client Onboarding & Systems Optimization Associate internship" class="thumb-img"
+                            loading="lazy">
+                    </div>
+                    <div>
+                        <div class="tl-org">Riipen · Internship</div>
+                        <div class="tl-dates">JAN 2025 — MAR 2025 · 3 MOS</div>
+                        <div class="tl-loc">Ontario, Canada · Remote</div>
+                        <ul>
+                            <li>Analyzed and evaluated client onboarding processes to identify bottlenecks,
+                                inefficiencies, and opportunities for improvement.</li>
+                            <li>Supported weekly client onboarding and administrative operations to help ensure a
+                                smooth and consistent client experience.</li>
+                            <li>Tested operational playbooks through real-world scenarios and simulations to assess
+                                usability, clarity, and effectiveness.</li>
+                            <li>Documented feedback and recommended improvements to strengthen playbook processes and
+                                support more consistent execution.</li>
+                            <li>Applied systems analysis and process improvement principles to optimize administrative
+                                workflows and client onboarding procedures.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience 3: Best UI Award — Google Developer Software Hackathon -->
             <div class="project">
                 <div class="project-head">
                     <div>
                         <div class="project-title">Best UI Award — Google Developer Software Hackathon</div>
                         <div class="project-tags"><span>MLH</span><span>Hackathon</span><span>UI/UX</span></div>
                     </div>
-                    <div class="project-addr">LOG[0x00]</div>
+                    <div class="project-addr">LOG[0x02]</div>
                 </div>
                 <div class="project-body has-media">
-                    <button type="button" class="media-trigger" data-modal-target="hackathonModal"
-                        aria-haspopup="dialog" aria-controls="hackathonModal">
-                        <img src="Assets/hackathon/example.jpg" alt="Google Developer Software Hackathon team photo"
+                    <div class="media-frame">
+                        <img src="Assets/mlhlogo.jpg" alt="Google Developer Software Hackathon team photo"
                             class="thumb-img" loading="lazy">
-                        <span class="media-hint"><span class="hint-icon">▸</span> View photo</span>
-                    </button>
+                    </div>
                     <div>
                         <div class="tl-org">MLH, University of Guelph</div>
                         <div class="tl-dates">MAY 2025</div>
@@ -317,21 +419,19 @@
                 </div>
             </div>
 
-            <!-- Experience 2 -->
+            <!-- Experience 4: Package Handling and Management -->
             <div class="project">
                 <div class="project-head">
                     <div>
                         <div class="project-title">Package Handling and Management</div>
                         <div class="project-tags"><span>Warehouse</span><span>Operations</span></div>
                     </div>
-                    <div class="project-addr">LOG[0x01]</div>
+                    <div class="project-addr">LOG[0x03]</div>
                 </div>
                 <div class="project-body has-media">
-                    <button type="button" class="media-trigger" data-modal-target="ulineModal" aria-haspopup="dialog"
-                        aria-controls="ulineModal">
-                        <img src="Assets/uline/example.jpg" alt="Uline warehouse" class="thumb-img" loading="lazy">
-                        <span class="media-hint"><span class="hint-icon">▸</span> View photo</span>
-                    </button>
+                    <div class="media-frame">
+                        <img src="Assets/ulinelogo.jpg" alt="Uline warehouse" class="thumb-img" loading="lazy">
+                    </div>
                     <div>
                         <div class="tl-org">Uline Warehouse, Milton, Ontario</div>
                         <div class="tl-dates">APRIL 2025 — MAY 2025</div>
@@ -399,9 +499,11 @@
         </div>
     </footer>
 
+    <div class="page-end-space" aria-hidden="true"></div>
+
     <!-- ==================== MODALS ==================== -->
 
-    <!-- Autonomous Wheelchair gallery modal -->
+    <!-- Autonomous Wheelchair gallery modal: video top, image bottom-left, video bottom-right -->
     <div class="modal-overlay" id="wheelchairModal" role="dialog" aria-modal="true"
         aria-labelledby="wheelchairModalTitle" hidden>
         <div class="modal-panel">
@@ -413,17 +515,23 @@
                     <source src="Assets/360Wheelchair.mov" type="video/quicktime">
                 </video>
                 <div class="modal-desc">
-                    <h3 id="wheelchairModalTitle">Autonomous Wheelchair — Build Walkthrough</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this paragraph with a short
-                        walkthrough of what the 360° clip shows — chassis, sensors, and how the drive system is laid
-                        out.</p>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Add a line on what problem
-                        the mechanism solves and any design trade-offs worth calling out.</p>
+                    <h3 id="wheelchairModalTitle">Autonomous Wheelchair</h3>
+                    <ul>
+                        <li>Group-built autonomous wheelchair using Arduino microcontrollers and breadboards,
+                            programmed in C for mobility and assistive functions.</li>
+                        <li>Prototyped and iterated the frame in Meccano to optimize structure, mobility, and
+                            durability.</li>
+                        <li>Custom-built trash-launching and weight-pulling mechanisms for added real-world
+                            functionality.</li>
+                        <li>Modeled 20+ parts in AutoCAD for a precise final design schematic.</li>
+                        <li>Validated the design against speed, weight capacity, incline pulling, and launcher
+                            precision.</li>
+                    </ul>
                 </div>
             </div>
             <div class="modal-bottom">
                 <figure class="modal-cell">
-                    <img src="Assets/wheelchair.jpg" alt="Autonomous wheelchair prototype on a workbench"
+                    <img src="Assets/wheelchairprototype.jpg" alt="Autonomous wheelchair prototype on a workbench"
                         class="modal-media crop-square">
                     <figcaption>Frame prototype, Meccano build</figcaption>
                 </figure>
@@ -439,37 +547,40 @@
         </div>
     </div>
 
-    <!-- Kinder Egg Rescue Boat Toy gallery modal -->
+    <!-- Kinder Egg Rescue Boat Toy gallery modal: image top, image bottom-left, video bottom-right -->
     <div class="modal-overlay" id="kinderEggModal" role="dialog" aria-modal="true" aria-labelledby="kinderEggModalTitle"
         hidden>
         <div class="modal-panel">
             <button type="button" class="modal-close" data-modal-close aria-label="Close gallery">✕</button>
             <div class="modal-top">
-                <video class="modal-media crop-square" id="kinderEggVideoMain" data-modal-video muted loop playsinline
-                    preload="metadata">
-                    <source src="Assets/cadboatasem.mp4" type="video/mp4">
-                    <source src="Assets/cadboatasem.mov" type="video/quicktime">
-                </video>
+                <img src="Assets/boat.jpg" alt="Kinder Egg Rescue Boat Toy assembly" class="modal-media crop-square"
+                    id="kinderEggImageMain">
                 <div class="modal-desc">
-                    <h3 id="kinderEggModalTitle">Kinder Egg Rescue Boat Toy — Build Overview</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this paragraph with a short
-                        walkthrough of the launch mechanism in action — trigger, spring release, and projectile
-                        travel.</p>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Add a line on tolerance
-                        challenges solved during fitting and printing.</p>
+                    <h3 id="kinderEggModalTitle">Kinder Egg Rescue Boat Toy</h3>
+                    <ul>
+                        <li>Designed and modeled an original mechanical assembly in SolidWorks, engineering
+                            individual components to meet strict dimensional constraints while ensuring proper fit
+                            and function upon assembly.</li>
+                        <li>Developed a spring-loaded catapult launch mechanism, creating detailed CAD drawings for
+                            the trigger, release, and projectile system to ensure reliable mechanical performance.
+                        </li>
+                        <li>Applied precise measurement and tolerance considerations throughout the design process,
+                            validating designs through 3D printing and physical testing before finalizing
+                            documentation.</li>
+                    </ul>
                 </div>
             </div>
             <div class="modal-bottom">
                 <figure class="modal-cell">
-                    <img src="Assets/kinderegg/example.jpg" alt="Kinder Egg Rescue Boat Toy assembly"
-                        class="modal-media crop-square">
+                    <img src="Assets/cadboat.jpg" alt="Kinder Egg Rescue Boat Toy assembly, alternate angle"
+                        class="modal-media crop-square" id="kinderEggImageSecondary">
                     <figcaption>Assembled boat + catapult mechanism</figcaption>
                 </figure>
                 <figure class="modal-cell">
-                    <video class="modal-media crop-square" id="kinderEggVideoSecondary" data-modal-video muted loop
+                    <video class="modal-media crop-square" id="kinderEggVideoMain" data-modal-video muted loop
                         playsinline preload="metadata">
-                        <source src="Assets/kinderegg/example-2.mp4" type="video/mp4">
-                        <source src="Assets/kinderegg/example-2.mov" type="video/quicktime">
+                        <source src="Assets/cadboatasem.mp4" type="video/mp4">
+                        <source src="Assets/kinderegg/example.mov" type="video/quicktime">
                     </video>
                     <figcaption>Launch mechanism test</figcaption>
                 </figure>
@@ -477,68 +588,27 @@
         </div>
     </div>
 
-    <!-- Mechanical Toy Reverse Engineering gallery modal -->
+    <!-- Mechanical Toy Reverse Engineering modal: single video only -->
     <div class="modal-overlay" id="toyReverseModal" role="dialog" aria-modal="true"
         aria-labelledby="toyReverseModalTitle" hidden>
-        <div class="modal-panel">
-            <button type="button" class="modal-close" data-modal-close aria-label="Close gallery">✕</button>
-            <div class="modal-top">
-                <video class="modal-media crop-square" id="toyReverseVideoMain" data-modal-video muted loop playsinline
-                    preload="metadata">
-                    <source src="Assets/toyreverse/example.mp4" type="video/mp4">
-                    <source src="Assets/toyreverse/example.mov" type="video/quicktime">
-                </video>
-                <div class="modal-desc">
-                    <h3 id="toyReverseModalTitle">Mechanical Toy Reverse Engineering — Assembly Walkthrough</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this paragraph with a short
-                        walkthrough of the construction animation — assembly order and how the parts constrain each
-                        other.</p>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Add a line on measurement
-                        method and how accuracy was verified against the original toy.</p>
-                </div>
-            </div>
-            <div class="modal-bottom">
-                <figure class="modal-cell">
-                    <img src="Assets/toyreverse/example.jpg" alt="Reverse-engineered mechanical toy assembly"
-                        class="modal-media crop-square">
-                    <figcaption>Fully constrained SolidWorks assembly</figcaption>
-                </figure>
-                <figure class="modal-cell">
-                    <video class="modal-media crop-square" id="toyReverseVideoSecondary" data-modal-video muted loop
-                        playsinline preload="metadata">
-                        <source src="Assets/toyreverse/example-2.mp4" type="video/mp4">
-                        <source src="Assets/toyreverse/example-2.mov" type="video/quicktime">
-                    </video>
-                    <figcaption>Construction animation, assembly order</figcaption>
-                </figure>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hackathon experience photo modal (single image) -->
-    <div class="modal-overlay" id="hackathonModal" role="dialog" aria-modal="true" aria-labelledby="hackathonModalTitle"
-        hidden>
         <div class="modal-panel modal-panel--single">
-            <button type="button" class="modal-close" data-modal-close aria-label="Close photo">✕</button>
-            <img src="Assets/hackathon/example.jpg" alt="Google Developer Software Hackathon team photo"
-                class="modal-media modal-photo">
-            <div class="modal-desc">
-                <h3 id="hackathonModalTitle">Best UI Award — Google Developer Software Hackathon</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with a line about the team,
-                    the build, and the moment the photo captures.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Uline experience photo modal (single image) -->
-    <div class="modal-overlay" id="ulineModal" role="dialog" aria-modal="true" aria-labelledby="ulineModalTitle" hidden>
-        <div class="modal-panel modal-panel--single">
-            <button type="button" class="modal-close" data-modal-close aria-label="Close photo">✕</button>
-            <img src="Assets/uline/example.jpg" alt="Uline warehouse" class="modal-media modal-photo">
-            <div class="modal-desc">
-                <h3 id="ulineModalTitle">Package Handling and Management</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace this with a line about the role
-                    and the environment shown in the photo.</p>
+            <button type="button" class="modal-close" data-modal-close aria-label="Close video">✕</button>
+            <h3 id="toyReverseModalTitle" class="modal-video-title">Mechanical Toy Reverse Engineering</h3>
+            <video class="modal-media crop-square modal-video-solo" id="toyReverseVideoMain" data-modal-video muted loop
+                playsinline preload="metadata">
+                <source src="Assets/reversetoy.mov" type="video/mov">
+                <source src="Assets/reversetoy.mov" type="video/quicktime">
+            </video>
+            <div class="modal-desc modal-desc--solo">
+                <ul>
+                    <li>Reverse-engineered a multi-piece mechanical toy by physically measuring each component and
+                        producing detailed CAD drawings in SolidWorks, ensuring dimensional accuracy consistent with
+                        real-world manufacturing standards.</li>
+                    <li>Developed a fully constrained SolidWorks assembly to model part interactions and construction
+                        sequence, translating physical measurements into structured technical documentation.</li>
+                    <li>Created a construction animation to visually communicate assembly order and part
+                        relationships, supporting clear technical understanding for future reference.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -611,7 +681,7 @@
         document.getElementById('opSelect').addEventListener('change', compute);
         compute();
 
-        // ---- Generic media-gallery / photo modal system ----
+        // ---- Generic media-gallery / video modal system ----
         // Works for any number of modals: each trigger points at a modal via
         // data-modal-target="<id>", and each modal closes via any element
         // carrying data-modal-close, clicking the dark backdrop, or Escape.
